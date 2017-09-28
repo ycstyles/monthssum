@@ -1,0 +1,41 @@
+<!doctype html>
+<head>
+    <title>자바스크립트 실습</title>
+    <style>
+        input{font-size: 1em;}
+        button{font-size: 1em;}
+        body{font-size: 2em;}
+    </style>
+</head>
+
+<body>
+    <h1 id="display">한달 월급을 알아봅시다.</h1>
+    <input type="text" id="extraSalary" placeholder="당신의 추가근무기간을 알려주세요">시간(hour)
+    <br>
+    <input type="text" id="nightSalary" placeholder="당신의 야간근무시간을 알려주세요">시간(hour)
+    <br>
+    <input type="text" id="holidaySalary" placeholder="당신의 휴일일수를 알려주세요">일(day)
+    <br><button id="action">계산하기</button>
+
+ <!-- html주선은 화살표 -->
+    <script>
+        // 변수와 함수
+        // variable and function
+ 
+            action.onclick = function(){
+            var myExtraSalary = extraSalary.value;
+            var myNightSalary = nightSalary.value;
+            var myHolidaySalary = holidaySalary.value;
+            monthSalary(myExtraSalary,myNightSalary,myHolidaySalary);
+        }
+    function monthSalary(extraSalary, nightSalary, holidaySalary){
+        var basicS = 1600000;
+        var extraSSum = extraSalary * 6700;
+        var nightSSum = nightSalary * 2700;
+        var holidaySSum = holidaySalary * 70000;
+        var salarySum = basicS + extraSSum + nightSSum + holidaySSum;
+        var Text = "당신의 추가근무수당은" + extraSSum + " 원 입니다." + " 당신의 야간근무수당은 " + nightSSum + "원 입니다." + " 당신의 휴일수당은 " + holidaySSum + "원 입니다. 그래서 이번 달 월급은 " + salarySum + "원 입니다.";
+        display.innerHTML = Text;
+}
+    </script>
+</body>
